@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button id="toUpper">
+        将 "pagea"变成大写 - namea
+    </button>
+    <iframe id="iframe" src="http://location2.com:8088/nameb"></iframe>
+    <script>
+        // 当 a 页面需要数据变更的时候 将数据通过 hash传递给b页面
+        // b 页面在监听到hash改变的时候，将这个值设置为window.name的值
+        // 同是，将自己的url更换为和 a 页面同域名的c页面上
+        // c页面上再获取到window.name的值，并调用a页面中的方法，将处理后的值传递进去
+
+        // 这里利用hash，只是传递数据的一种手段
+        document.getElementById('toUpper').addEventListener('click', () => {
+            document.getElementById('iframe').src = document.getElementById('iframe').src + '#pagea'
+        })
+
+        function upper(str) {
+            console.log(str)
+        }
+    </script>
+</body>
+</html>

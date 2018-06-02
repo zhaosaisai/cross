@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 监听 a 页面发送过来的数据
+        window.addEventListener('message', function(e) {
+            // 进行处理
+            const data = (e.data || '').toUpperCase()
+
+            // 调用 a 页面的postMessage方法，将数据发送给a页面
+            // 必须得带上端口号
+            this.parent.postMessage(data, 'http://location1.com:8088')
+        })
+    </script>
+</body>
+</html>

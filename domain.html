@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button id="parent">获取子页面中的childName变量的值</button>
+    <iframe id="iframe" src="http://child.web.com:8088/child/domain"></iframe>
+    <script>
+        document.domain = 'web.com'
+        var parentName = '这是父页面的名字'
+        document.getElementById('parent').addEventListener('click', () => {
+            console.log(document.getElementById('iframe').contentWindow.childName)
+        })
+    </script>
+</body>
+</html>

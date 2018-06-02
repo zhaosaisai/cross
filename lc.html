@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 在这个页面来监听hashchange事件，然后调用a页面中的方法
+        window.onhashchange = function() {
+            window.parent.parent.upper(location.hash.slice(1).toUpperCase())
+        }
+        
+    </script>
+</body>
+</html>

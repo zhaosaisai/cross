@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        window.onhashchange = function() {
+            // 监听hash的改变，设置window.name和location.href
+            const hash = location.hash.slice(1)
+            window.name = hash
+            location.href = 'http://location1.com:8088/namec'
+            console.log('b页面设置的window.name=', window.name)
+        }    
+    </script>
+</body>
+</html>

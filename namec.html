@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 获取parent页面的upper方法，并将处理后的结果传递给它
+        console.log('url改变后, c页面获取的window.name=', window.name)
+        window.parent.upper(window.name.toUpperCase())
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button id="toUpper">
+        将 "pagea"变成大写
+    </button>
+    <iframe id="iframe" src="http://location2.com:8088/postMessageB"></iframe>
+    <script>
+        function upper(str) {
+            console.log(str)
+        }
+        document.getElementById('toUpper').addEventListener('click', function() {
+            const iframe = document.getElementById('iframe')
+            // 在iframe加载完成的时候 向 b 页面发送数据
+            // b 页面会监听message事件，当收到我们传递的数据的时候
+            // 对数据进行处理，然后再通过postMessage将数据发给 a 页面
+            let str = 'pagea'
+            // 向http://location2.com:8088发送数据
+            iframe.contentWindow.postMessage(str, 'http://location2.com:8088')
+
+            // 监听 b 页面发送给我们的数据
+            window.addEventListener('message', function(e) {
+                upper(e.data)
+            })
+        })
+    </script>
+</body>
+</html>

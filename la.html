@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 在a页面中，嵌入一个不同域名的b页面 -->
+    <button id="toUpper">
+        将 "pagea"变成大写
+    </button>
+    <iframe id="iframe" src="http://location2.com:8088/lb"></iframe>
+    <script>
+        // 实现一个功能就是，从a页面传递一个 字符串 并经过 b 页面进行处理
+        // 获取到 这个字符串的 大写的形式
+        document.getElementById('toUpper').addEventListener('click', () => {
+            document.getElementById('iframe').src = document.getElementById('iframe').src + '#pagea'
+        })
+
+        // 在b页面中获取这个方法进行处理
+        function upper(str) {
+            console.log(str)
+        }
+    </script>
+</body>
+</html>

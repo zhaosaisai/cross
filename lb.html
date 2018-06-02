@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <iframe id="frame" src="http://location1.com:8088/lc"></iframe>
+    <script>
+        window.onhashchange = function() {
+            // 获取父窗口中的upper方法来显示字符串
+            // 不直接调用父页面的方法，而是通过一个和父页面同域名的页面来和父页面进行双向通信
+            // window.parent.upper(location.hash.toUpperCase())
+
+            // 直接将自己的hash传递给 c 页面
+            document.getElementById('frame').src = document.getElementById('frame').src + location.hash
+        }    
+    </script>
+</body>
+</html>
